@@ -10,16 +10,25 @@ title: Student Blog
 </head>
 <body>
 
-  <button onclick="changeColor('lightblue')">Blue</button>
-  <button onclick="changeColor('lightgreen')">Green</button>
-  <button onclick="changeColor('lightcoral')">Red</button>
+  <button id="blueButton">Blue</button>
+  <button id="greenButton">Green</button>
+  <button id="redButton">Red</button>
 
   <script>
-    function changeColor(color) {
-      document.body.style.backgroundColor = color;
-    }
+    document.getElementById('blueButton').onclick = function() {
+      document.body.style.backgroundColor = 'lightblue';
+    };
+
+    document.getElementById('greenButton').onclick = function() {
+      document.body.style.backgroundColor = 'lightgreen';
+    };
+
+    document.getElementById('redButton').onclick = function() {
+      document.body.style.backgroundColor = 'lightcoral';
+    };
   </script>
 
 </body>
 </html>
+
 
