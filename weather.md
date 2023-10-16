@@ -3,32 +3,24 @@ layout: default
 title: Student Blog
 ---
 
-<!DOCTYPE html>
 <html>
 <head>
   <title>Change Background Color</title>
 </head>
 <body>
 
-  <button id="blueButton">Blue</button>
-  <button id="greenButton">Green</button>
-  <button id="redButton">Red</button>
+  <button id="blueButton" onclick="changeColor('lightblue')">Blue</button>
+  <button id="greenButton" onclick="changeColor('lightgreen')">Green</button>
+  <button id="redButton" onclick="changeColor('lightcoral')">Red</button>
 
   <script>
-    document.getElementById('blueButton').onclick = function() {
-      document.body.style.backgroundColor = 'lightblue';
-    };
-
-    document.getElementById('greenButton').onclick = function() {
-      document.body.style.backgroundColor = 'lightgreen';
-    };
-
-    document.getElementById('redButton').onclick = function() {
-      document.body.style.backgroundColor = 'lightcoral';
-    };
+    function changeColor(color) {
+      document.body.style.backgroundColor = color;
+    }
   </script>
 
 </body>
 </html>
+
 
 
