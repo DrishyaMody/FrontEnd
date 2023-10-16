@@ -59,15 +59,25 @@ title: Student Blog
         <div id="result"></div>
     </div>
 
-    <script>
-        function getWeather() {
-            // Add your API call here and manipulate the #result div to display the weather information.
-            // You can use JavaScript fetch or any other library to make the API request.
-            // Remember to handle errors and display appropriate messages in case of failures.
-        }
-    </script>
+<script>
+    function getWeather() {
+        const location = document.getElementById('location').value;
+        // Replace 'your_api_url_here' with your actual API endpoint
+        fetch('stu.nighthawkcodingsociety.com/api/weather' + location)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                document.getElementById('result').innerText = 'An error occurred. Please try again later.';
+            });
+    }
+</script>
 </body>
 </html>
+
+
 
 
 
