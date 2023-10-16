@@ -3,7 +3,6 @@ layout: default
 title: Student Blog
 ---
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
