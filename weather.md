@@ -94,8 +94,3 @@ title: Student Blog
 
 
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> f7cf93fbd2b42a4438d191fd46223a75c5f8a88b
