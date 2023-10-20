@@ -63,7 +63,7 @@ title: Student Blog
     function getWeather() {
         const location = document.getElementById('location').value;
         // Replace 'your_api_url_here' with your actual API endpoint
-        fetch('stu.nighthawkcodingsociety.com/api/weather' + location)
+        fetch('https://backend.stu.nighthawkcodingsociety.com/api/weather/' + location)
             .then(response => response.json())
             .then(data => {
                 document.getElementById('result').innerText = JSON.stringify(data, null, 2);
