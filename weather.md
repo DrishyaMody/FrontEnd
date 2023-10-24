@@ -103,7 +103,12 @@ title: Student Blog
 </html>
 
 <div>
+<<<<<<< HEAD
     <button><a href="https://weather.com/weather/tenday/l/San+Diego+CA?canonicalCityId=cb5c473781cc06501376639dce8f0823a99187dcb42c79471a4303c076d66452">Wind Speed</a></button>
+=======
+    <button><a href="https://backend.stu.nighthawkcodingsociety.com/api/weather/">Wind Speed</a></button>
+
+>>>>>>> 63ffd86b048e89c79906d2660488e5a77a761d99
 </div>
 
 <div>
