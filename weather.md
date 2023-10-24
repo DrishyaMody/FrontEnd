@@ -103,7 +103,6 @@ title: Student Blog
 </html>
 
 <div>
-<<<<<<< HEAD
     <button><a href="https://weather.com/weather/tenday/l/San+Diego+CA?canonicalCityId=cb5c473781cc06501376639dce8f0823a99187dcb42c79471a4303c076d66452">Wind Speed</a></button>
 
 <div>
