@@ -89,7 +89,8 @@ title: Student Blog
             fetch('https://backend.stu.nighthawkcodingsociety.com/api/weather/' + location)
                 .then(response => response.json())
                 .then(data => {
-                    resultDiv.innerText = "Current Temperature in " + location + " is " + data["current"]["feelslike_f"] + " °F";
+                    resultDiv.innerText = "Current Temperature in " + location + " is " + data["current"]["feelslike_f"] + " °F"+ " Current Windspeed in " + location + " is " +data["current"]["wind_mph"] + " MPH";
+
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
