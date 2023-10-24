@@ -103,7 +103,8 @@ title: Student Blog
 </html>
 
 <div>
-    <button><a href="https://tanvi-3.github.io/tanvipampati3/">Wind Speed</a></button>
+    <button><a href="https://backend.stu.nighthawkcodingsociety.com/api/weather/">Wind Speed</a></button>
+
 </div>
 
 <div>
