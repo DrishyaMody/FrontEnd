@@ -106,3 +106,6 @@ title: Student Blog
     <button><a href="https://tanvi-3.github.io/tanvipampati3/">Wind Speed</a></button>
 </div>
 
+<div>
+    <button><a href="https://tanvi-3.github.io/tanvipampati3/">Temperature</a></button>
+</div>
