@@ -103,9 +103,13 @@ title: Student Blog
 </html>
 
 <div>
-    <button><a href="https://tanvi-3.github.io/tanvipampati3/">Wind Speed</a></button>
+    <button><a href="https://weather.com/weather/tenday/l/San+Diego+CA?canonicalCityId=cb5c473781cc06501376639dce8f0823a99187dcb42c79471a4303c076d66452">Wind Speed</a></button>
 </div>
 
 <div>
-    <button><a href="https://tanvi-3.github.io/tanvipampati3/">Temperature</a></button>
+    <button><a href="https://weather.com/weather/tenday/l/San+Diego+CA?canonicalCityId=cb5c473781cc06501376639dce8f0823a99187dcb42c79471a4303c076d66452">Temperature</a></button>
+</div>
+
+<div>
+    <button><a href="https://weather.com/weather/tenday/l/San+Diego+CA?canonicalCityId=cb5c473781cc06501376639dce8f0823a99187dcb42c79471a4303c076d66452">Tommorowt</a></button>
 </div>
