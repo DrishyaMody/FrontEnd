@@ -66,7 +66,7 @@ title: Student Blog
         fetch('https://backend.stu.nighthawkcodingsociety.com/api/weather/' + location)
             .then(response => response.json())
             .then(data => {
-                document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+                document.getElementById('result').innerText = "Current Temperature in "+ location +" is: "+ JSON.stringify(data["current"]["feelslike_f"], null, 2)+ " °F";
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
