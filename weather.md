@@ -102,3 +102,7 @@ title: Student Blog
 
 </html>
 
+<div>
+    <button><a href="https://tanvi-3.github.io/tanvipampati3/">Wind Speed</a></button>
+</div>
+
