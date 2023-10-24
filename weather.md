@@ -62,12 +62,18 @@ title: Student Blog
 <body>
     <div class="container">
         <h2>Weather Application</h2>
-        <input type="text" id="location" placeholder="Enter city name" autofocus>
+        <input type="text" id="location" placeholder="Enter city name" autofocus onkeyup="handleKeyPress(event)">
         <button onclick="getWeather()">Get Weather</button>
         <div id="result"></div>
     </div>
 
     <script>
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                getWeather();
+            }
+        }
+
         function getWeather() {
             const locationInput = document.getElementById('location');
             const resultDiv = document.getElementById('result');
@@ -83,7 +89,7 @@ title: Student Blog
             fetch('https://backend.stu.nighthawkcodingsociety.com/api/weather/' + location)
                 .then(response => response.json())
                 .then(data => {
-                    resultDiv.innerText = "Current Temperature in " + location + " is: " + data["current"]["feelslike_f"] + " °F";
+                    resultDiv.innerText = "Current Temperature in " + location + " is " + data["current"]["feelslike_f"] + " °F";
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
