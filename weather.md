@@ -127,3 +127,17 @@ title: Student Blog
 </body>
 
 </html>
+<<<<<<< HEAD
+=======
+
+<div>
+    <button><a href="https://weather.com/weather/tenday/l/San+Diego+CA?canonicalCityId=cb5c473781cc06501376639dce8f0823a99187dcb42c79471a4303c076d66452">Wind Speed</a></button>
+
+<div>
+    <button><a href="https://weather.com/weather/tenday/l/San+Diego+CA?canonicalCityId=cb5c473781cc06501376639dce8f0823a99187dcb42c79471a4303c076d66452">Temperature</a></button>
+</div>
+
+<div>
+    <button><a href="https://weather.com/weather/tenday/l/San+Diego+CA?canonicalCityId=cb5c473781cc06501376639dce8f0823a99187dcb42c79471a4303c076d66452">Precipitation</a></button>
+</div>
+>>>>>>> fcf302a771b394a2767360fe94634586ea2f8c28
