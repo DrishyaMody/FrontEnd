@@ -62,11 +62,13 @@ title: Student Blog
             border-radius: 5px;
         }
     </style>
-</head>
+
 
 <body>
     <div class="container">
         <h2>Weather Application</h2>
+        <img src="FocusArea__Weather-02.jpg"  height="200" width="200">
+
         <input type="text" id="location" placeholder="Enter city name" autofocus onkeyup="handleKeyPress(event)">
         <div class="button-container">
             <button onclick="getWindSpeed()">Wind Speed</button>
@@ -126,4 +128,3 @@ title: Student Blog
     </script>
 </body>
 
-</html>
