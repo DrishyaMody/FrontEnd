@@ -66,6 +66,12 @@ title: Student Blog
 
 <body>
     <div class="container">
+    <label class="switch">
+    <input type="checkbox" id="tempSwitch" onclick="toggleTemperatureUnit()">
+    <span class="slider round"></span>
+</label>
+<span id="tempLabel">Celcius Mode</span>
+
         <h2>Weather Application</h2>
         <img src="FocusArea__Weather-02.jpg"  height="200" width="200">
 
@@ -127,4 +133,3 @@ title: Student Blog
         }
     </script>
 </body>
-
