@@ -36,14 +36,19 @@ title: Student Blog
             border-radius: 5px;
         }
 
-        button {
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button-container button {
             background-color: #4CAF50;
             color: white;
-            padding: 10px 20px;
+            padding: 5px 10px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            width: 100%;
+            flex: 1;
         }
 
         button:hover {
@@ -63,7 +68,11 @@ title: Student Blog
     <div class="container">
         <h2>Weather Application</h2>
         <input type="text" id="location" placeholder="Enter city name" autofocus onkeyup="handleKeyPress(event)">
-        <button onclick="getWeather()">Get Weather</button>
+        <div class="button-container">
+            <button onclick="getWindSpeed()">Wind Speed</button>
+            <button onclick="getTemperature()">Temperature</button>
+            <button onclick="getPrecipitation()">Precipitation</button>
+        </div>
         <div id="result"></div>
     </div>
 
@@ -74,7 +83,19 @@ title: Student Blog
             }
         }
 
-        function getWeather() {
+        function getWindSpeed() {
+            fetchWeatherData('wind_mph');
+        }
+
+        function getTemperature() {
+            fetchWeatherData('feelslike_f');
+        }
+
+        function getPrecipitation() {
+            fetchWeatherData('precip_in');
+        }
+
+        function fetchWeatherData(dataType) {
             const locationInput = document.getElementById('location');
             const resultDiv = document.getElementById('result');
             const location = locationInput.value.trim();
@@ -89,8 +110,13 @@ title: Student Blog
             fetch('https://backend.stu.nighthawkcodingsociety.com/api/weather/' + location)
                 .then(response => response.json())
                 .then(data => {
-                    resultDiv.innerText = "Current Temperature in " + location + " is " + data["current"]["feelslike_f"] + " °F"+ " Current Windspeed in " + location + " is " +data["current"]["wind_mph"] + " MPH";
-
+                    if (dataType === 'wind_mph') {
+                        resultDiv.innerText = `Current Wind Speed in ${location} is ${data["current"]["wind_mph"]} MPH`;
+                    } else if (dataType === 'feelslike_f') {
+                        resultDiv.innerText = `Current Temperature in ${location} is ${data["current"]["feelslike_f"]} °F`;
+                    } else if (dataType === 'precip_in') {
+                        resultDiv.innerText = `Current Precipitation in ${location} is ${data["current"]["precip_in"]} inches`;
+                    }
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
@@ -101,11 +127,3 @@ title: Student Blog
 </body>
 
 </html>
-
-<div>
-    <button><a href="https://tanvi-3.github.io/tanvipampati3/">Wind Speed</a></button>
-</div>
-
-<div>
-    <button><a href="https://tanvi-3.github.io/tanvipampati3/">Temperature</a></button>
-</div>
