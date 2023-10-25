@@ -110,5 +110,11 @@ title: Student Blog
 </div>
 
 <div>
+<<<<<<< HEAD
     <button><a href="https://weather.com/weather/tenday/l/San+Diego+CA?canonicalCityId=cb5c473781cc06501376639dce8f0823a99187dcb42c79471a4303c076d66452">Precipitation</a></button>
 </div>
+=======
+    <button><a href="https://weather.com/weather/tenday/l/San+Diego+CA?canonicalCityId=cb5c473781cc06501376639dce8f0823a99187dcb42c79471a4303c076d66452">Tommorrow</a></button>
+</div>
+
+>>>>>>> 18f4815f8af45c11fa20f7be7ceb803413844dca
