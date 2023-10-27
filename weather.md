@@ -61,6 +61,10 @@ title: Student Blog
             border: 1px solid #ddd;
             border-radius: 5px;
         }
+
+        .button-spacing {
+            margin-right: 10px;
+        }
     </style>
 
 
@@ -77,9 +81,9 @@ title: Student Blog
 
         <input type="text" id="location" placeholder="Enter city name" autofocus onkeyup="handleKeyPress(event)">
         <div class="button-container">
-            <button onclick="getWindSpeed()">Wind Speed</button>
-            <button onclick="getTemperature()">Temperature</button>
-            <button onclick="getPrecipitation()">Precipitation</button>
+            <button class="button-spacing" onclick="getWindSpeed()">Wind Speed</button>
+            <button class="button-spacing" onclick="getTemperature()">Temperature</button>
+            <button class="button-spacing" onclick="getPrecipitation()">Precipitation</button>
         </div>
         <div id="result"></div>
     </div>
