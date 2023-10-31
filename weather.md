@@ -135,5 +135,8 @@ title: Student Blog
                     resultDiv.innerText = 'An error occurred. Please try again later.';
                 });
         }
+            fetch('http://127.0.0.1:8531/api/cityimage/' + location)
+                .then(response +> response.json())
+                
     </script>
 </body>
