@@ -119,7 +119,7 @@ title: Student Blog
 
             resultDiv.innerText = 'Loading...';
 
-            fetch('https://backend.stu.nighthawkcodingsociety.com/api/weather/' + location)
+            fetch('http://127.0.0.1:8531/api/weather/' + location)
                 .then(response => response.json())
                 .then(data => {
                     if (dataType === 'wind_mph') {
