@@ -60,14 +60,11 @@ title: Student Blog
         }
     </style>
 
-
 <body>
     <div class="container">
     <label class="switch">
-    <input type="checkbox" id="tempSwitch" onclick="toggleTemperatureUnit()">
-    <span class="slider round"></span>
+    <button class="button-spacing" onclick="getMetric()">Metric Units</button>
 </label>
-<span id="tempLabel">Metric Units</span>
 
         <h2>Weather Application</h2>
         <img src="https://backend.stu.nighthawkcodingsociety.com/static/assets/sunny_weather.png" id = "weatherIcon"  height="200" width="200">
@@ -80,7 +77,11 @@ title: Student Blog
         </div>
         <div id="result"></div>
     </div>
+
+
     <script>
+        let isMetric = false;
+
         function handleKeyPress(event) {
             if (event.key === 'Enter') {
             }
@@ -104,11 +105,16 @@ title: Student Blog
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
 
+        function getMetric() {
+            isMetric = !isMetric;
+            alert(isMetric);
+        }
+
         function fetchWeatherData(dataType) {
             const locationInput = document.getElementById('location');
             const resultDiv = document.getElementById('result');
             const location = capitalizeFirstLetter(locationInput.value.trim());
-
+        
 
             if (location === '') {
                 resultDiv.innerText = 'Please enter a location';
@@ -129,14 +135,21 @@ title: Student Blog
                             var image = document.getElementById('weatherIcon')
                             image.src = data["current"]["weatherIcon_url"]
 
-                            if (dataType === 'wind_mph') {
-                                resultDiv.innerHTML = `<h2>Current Wind Speed in ${location} is ${data["current"]["wind_mph"]} MPH</h2>`;
-                            } else if (dataType === 'feelslike_f') {
+                            if (dataType === 'wind_mph' && isMetric === true) {
+                                resultDiv.innerHTML = `<h2>Current Wind Speed in ${location} is ${data["current"]["wind_mph"]*1.61} KPH </h2>`;
+                            } else if (dataType === 'feelslike_f' && isMetric === true) {
+                                resultDiv.innerHTML = `<h2>Current Temperature in ${location} is ${(data["current"]["feelslike_f"]-32)*(0.55)} °C</h2>`;
+                            } else if (dataType === 'precip_in' && isMetric === true) {
+                                resultDiv.innerHTML = `<h2>Current Precipitation in ${location} is ${data["current"]["precip_in"]*2.54} cm</h2>`;
+                            } else if (dataType === 'wind_mph' && isMetric === false) {
+                                resultDiv.innerHTML = `<h2>Current Wind Speed in ${location} is ${data["current"]["wind_mph"]} MPH </h2>`;
+                            } else if (dataType === 'feelslike_f' && isMetric === false) {
                                 resultDiv.innerHTML = `<h2>Current Temperature in ${location} is ${data["current"]["feelslike_f"]} °F</h2>`;
-                            } else if (dataType === 'precip_in') {
+                            } else if (dataType === 'precip_in' && isMetric === false) {
                                 resultDiv.innerHTML = `<h2>Current Precipitation in ${location} is ${data["current"]["precip_in"]} inches</h2>`;
                         
                             }
+                            
                             let imgElement = document.createElement('img');
                             imgElement.src = imageUrl;
                             resultDiv.appendChild(imgElement);
