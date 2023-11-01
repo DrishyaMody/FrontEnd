@@ -63,8 +63,10 @@ title: Student Blog
 <body>
     <div class="container">
     <label class="switch">
-    <button class="button-spacing" onclick="getMetric()">Metric Units</button>
+    <input type="checkbox" id="tempSwitch" onclick="getMetric()">
+    <span class="slider round"></span>
 </label>
+<span id="tempLabel">Metric Units</span>
 
         <h2>Weather Application</h2>
         <img src="https://backend.stu.nighthawkcodingsociety.com/static/assets/sunny_weather.png" id = "weatherIcon"  height="200" width="200">
@@ -107,7 +109,6 @@ title: Student Blog
 
         function getMetric() {
             isMetric = !isMetric;
-            alert(isMetric);
         }
 
         function fetchWeatherData(dataType) {
