@@ -116,10 +116,10 @@ title: Student Blog
 
             resultDiv.innerText = 'Loading...';
 
-            fetch('http://127.0.0.1:8531/api/weather/' + location)
+            fetch('https://backend.stu.nighthawkcodingsociety.com/api/weather/' + location)
                 .then(response => response.json())
                 .then(data => {
-                    let imageFetchUrl = 'http://127.0.0.1:8531/api/cityimage/' + location;
+                    let imageFetchUrl = 'https://backend.stu.nighthawkcodingsociety.com/api/cityimage/' + location;
                     fetch(imageFetchUrl)
                         .then(response => response.json())
                         .then(imageData => {
@@ -158,41 +158,4 @@ title: Student Blog
 
 <html>
 
-<head>
-    <title>Fetch Image from API</title>
-</head>
 
-<body>
-    <script>
-        // Replace the URL with the appropriate API endpoint
-        const url = 'http://127.0.0.1:8531/api/cityimage/';
-
-        // Fetch the image from the API
-        fetch(url)
-            .then(response => {
-                // Check if the request was successful
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.blob();
-            })
-            .then(blob => {
-                // Create an object URL from the blob
-                const objectURL = URL.createObjectURL(blob);
-
-                // Create an image element
-                const img = document.createElement('img');
-
-                // Set the src attribute to the object URL
-                img.src = objectURL;
-
-                // Append the image to the document body or any other desired element
-                document.body.appendChild(img);
-            })
-            .catch(error => {
-                console.error('There has been a problem with your fetch operation:', error);
-            });
-    </script>
-</body>
-
-</html>
