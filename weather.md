@@ -134,11 +134,11 @@ title: Student Blog
                             
 
                             if (dataType === 'wind_mph' && isMetric === true) {
-                                resultDiv.innerHTML = `<h2>Current Wind Speed in ${location} is ${data["current"]["wind_mph"]*1.61} KPH </h2>`;
+                                resultDiv.innerHTML = `<h2>Current Wind Speed in ${location} is ${parseFloat(data["current"]["wind_mph"]*1.61).toFixed(2)} KPH </h2>`;
                             } else if (dataType === 'feelslike_f' && isMetric === true) {
-                                resultDiv.innerHTML = `<h2>Current Temperature in ${location} is ${(data["current"]["feelslike_f"]-32)*(0.55)} °C</h2>`;
+                                resultDiv.innerHTML = `<h2>Current Temperature in ${location} is ${parseFloat((data["current"]["feelslike_f"]-32)*(0.55)).toFixed(2)} °C</h2>`;
                             } else if (dataType === 'precip_in' && isMetric === true) {
-                                resultDiv.innerHTML = `<h2>Current Precipitation in ${location} is ${data["current"]["precip_in"]*2.54} cm</h2>`;
+                                resultDiv.innerHTML = `<h2>Current Precipitation in ${location} is ${parseFloat(data["current"]["precip_in"]*2.54).toFixed(2)} cm</h2>`;
                             } else if (dataType === 'wind_mph' && isMetric === false) {
                                 resultDiv.innerHTML = `<h2>Current Wind Speed in ${location} is ${data["current"]["wind_mph"]} MPH </h2>`;
                             } else if (dataType === 'feelslike_f' && isMetric === false) {
