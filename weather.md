@@ -70,7 +70,7 @@ title: Student Blog
 <span id="tempLabel">Metric Units</span>
 
         <h2>Weather Application</h2>
-        <img src="FocusArea__Weather-02.jpg"  height="200" width="200">
+        <img src="https://backend.stu.nighthawkcodingsociety.com/static/assets/sunny_weather.png" id = "weatherIcon"  height="200" width="200">
 
         <input type="text" id="location" placeholder="Enter city name" autofocus onkeyup="handleKeyPress(event)">
         <div class="button-container">
@@ -83,13 +83,14 @@ title: Student Blog
     <script>
         function handleKeyPress(event) {
             if (event.key === 'Enter') {
-                getWeather();
             }
         }
 
         function getWindSpeed() {
             fetchWeatherData('wind_mph');
         }
+
+
 
         function getTemperature() {
             fetchWeatherData('feelslike_f');
@@ -125,7 +126,8 @@ title: Student Blog
                         .then(imageData => {
                             let imageUrl = imageData.image_url; // Assuming the URL is stored in a field named 'url'
                             console.log("IMAGE_URL===="+ imageUrl)
-                            
+                            var image = document.getElementById('weatherIcon')
+                            image.src = data["current"]["weatherIcon_url"]
 
                             if (dataType === 'wind_mph') {
                                 resultDiv.innerHTML = `<h2>Current Wind Speed in ${location} is ${data["current"]["wind_mph"]} MPH</h2>`;
@@ -133,6 +135,7 @@ title: Student Blog
                                 resultDiv.innerHTML = `<h2>Current Temperature in ${location} is ${data["current"]["feelslike_f"]} °F</h2>`;
                             } else if (dataType === 'precip_in') {
                                 resultDiv.innerHTML = `<h2>Current Precipitation in ${location} is ${data["current"]["precip_in"]} inches</h2>`;
+                        
                             }
                             let imgElement = document.createElement('img');
                             imgElement.src = imageUrl;
