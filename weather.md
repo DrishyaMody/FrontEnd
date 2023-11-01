@@ -18,7 +18,6 @@ title: Student Blog
             height: 100vh;
             margin: 0;
         }
-
         .container {
             text-align: center;
             padding: 20px;
@@ -26,7 +25,6 @@ title: Student Blog
             border-radius: 5px;
             width: 300px;
         }
-
         input[type="text"] {
             width: 100%;
             padding: 10px;
@@ -35,12 +33,10 @@ title: Student Blog
             border: 1px solid #ddd;
             border-radius: 5px;
         }
-
         .button-container {
             display: flex;
             justify-content: space-between;
         }
-
         .button-container button {
             background-color: #4CAF50;
             color: white;
@@ -50,18 +46,15 @@ title: Student Blog
             cursor: pointer;
             flex: 1;
         }
-
         button:hover {
             background-color: #45a049;
         }
-
         #result {
             margin-top: 20px;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
         }
-
         .button-spacing {
             margin-right: 10px;
         }
@@ -87,7 +80,6 @@ title: Student Blog
         </div>
         <div id="result"></div>
     </div>
-
     <script>
         function handleKeyPress(event) {
             if (event.key === 'Enter') {
@@ -107,10 +99,15 @@ title: Student Blog
             fetchWeatherData('precip_in');
         }
 
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
         function fetchWeatherData(dataType) {
             const locationInput = document.getElementById('location');
             const resultDiv = document.getElementById('result');
-            const location = locationInput.value.trim();
+            const location = capitalizeFirstLetter(locationInput.value.trim());
+
 
             if (location === '') {
                 resultDiv.innerText = 'Please enter a location';
@@ -122,21 +119,80 @@ title: Student Blog
             fetch('http://127.0.0.1:8531/api/weather/' + location)
                 .then(response => response.json())
                 .then(data => {
-                    if (dataType === 'wind_mph') {
-                        resultDiv.innerText = `Current Wind Speed in ${location} is ${data["current"]["wind_mph"]} MPH`;
-                    } else if (dataType === 'feelslike_f') {
-                        resultDiv.innerText = `Current Temperature in ${location} is ${data["current"]["feelslike_f"]} °F`;
-                    } else if (dataType === 'precip_in') {
-                        resultDiv.innerText = `Current Precipitation in ${location} is ${data["current"]["precip_in"]} inches`;
-                    }
+                    let imageFetchUrl = 'http://127.0.0.1:8531/api/cityimage/' + location;
+                    fetch(imageFetchUrl)
+                        .then(response => response.json())
+                        .then(imageData => {
+                            let imageUrl = imageData.image_url; // Assuming the URL is stored in a field named 'url'
+                            console.log("IMAGE_URL===="+ imageUrl)
+                            
+
+                            if (dataType === 'wind_mph') {
+                                resultDiv.innerHTML = `<h2>Current Wind Speed in ${location} is ${data["current"]["wind_mph"]} MPH</h2>`;
+                            } else if (dataType === 'feelslike_f') {
+                                resultDiv.innerHTML = `<h2>Current Temperature in ${location} is ${data["current"]["feelslike_f"]} °F</h2>`;
+                            } else if (dataType === 'precip_in') {
+                                resultDiv.innerHTML = `<h2>Current Precipitation in ${location} is ${data["current"]["precip_in"]} inches</h2>`;
+                            }
+                            let imgElement = document.createElement('img');
+                            imgElement.src = imageUrl;
+                            resultDiv.appendChild(imgElement);
+                            })
+                        .catch(error => {
+                            console.error('Error fetching image:', error);
+                            resultDiv.innerText += 'An error occurred fetching the image. Please try again later.';
+                        });
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
                     resultDiv.innerText = 'An error occurred. Please try again later.';
                 });
         }
-            fetch('http://127.0.0.1:8531/api/cityimage/' + location)
-                .then(response +> response.json())
                 
+               
+
+    </script>           
+</body>
+
+
+
+<html>
+
+<head>
+    <title>Fetch Image from API</title>
+</head>
+
+<body>
+    <script>
+        // Replace the URL with the appropriate API endpoint
+        const url = 'http://127.0.0.1:8531/api/cityimage/';
+
+        // Fetch the image from the API
+        fetch(url)
+            .then(response => {
+                // Check if the request was successful
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.blob();
+            })
+            .then(blob => {
+                // Create an object URL from the blob
+                const objectURL = URL.createObjectURL(blob);
+
+                // Create an image element
+                const img = document.createElement('img');
+
+                // Set the src attribute to the object URL
+                img.src = objectURL;
+
+                // Append the image to the document body or any other desired element
+                document.body.appendChild(img);
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
     </script>
 </body>
+
+</html>
