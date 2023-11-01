@@ -60,27 +60,29 @@ title: Student Blog
         }
     </style>
 
-
 <body>
     <div class="container">
     <label class="switch">
-    <input type="checkbox" id="tempSwitch" onclick="toggleTemperatureUnit()">
-    <span class="slider round"></span>
+    <button class="button-spacing" onclick="getMetric()">Metric Units</button>
 </label>
-<span id="tempLabel">Metric Units</span>
 
         <h2>Weather Application</h2>
         <img src="FocusArea__Weather-02.jpg"  height="200" width="200">
 
         <input type="text" id="location" placeholder="Enter city name" autofocus onkeyup="handleKeyPress(event)">
         <div class="button-container">
+            <button class="button-spacing" onclick="getMetric()">Metric Units</button>
             <button class="button-spacing" onclick="getWindSpeed()">Wind Speed</button>
             <button class="button-spacing" onclick="getTemperature()">Temperature</button>
             <button class="button-spacing" onclick="getPrecipitation()">Precipitation</button>
         </div>
         <div id="result"></div>
     </div>
+
+
     <script>
+        let isMetric = false;
+
         function handleKeyPress(event) {
             if (event.key === 'Enter') {
                 getWeather();
@@ -103,11 +105,16 @@ title: Student Blog
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
 
+        function getMetric() {
+            console.log("HIIIII::::"+ isMetric)
+            alert(isMetric);
+        }
+
         function fetchWeatherData(dataType) {
             const locationInput = document.getElementById('location');
             const resultDiv = document.getElementById('result');
             const location = capitalizeFirstLetter(locationInput.value.trim());
-
+        
 
             if (location === '') {
                 resultDiv.innerText = 'Please enter a location';
@@ -128,7 +135,7 @@ title: Student Blog
                             
 
                             if (dataType === 'wind_mph') {
-                                resultDiv.innerHTML = `<h2>Current Wind Speed in ${location} is ${data["current"]["wind_mph"]} MPH</h2>`;
+                                resultDiv.innerHTML = `<h2>Current Wind Speed in ${location} is ${data["current"]["wind_mph"]} MPH </h2>`;
                             } else if (dataType === 'feelslike_f') {
                                 resultDiv.innerHTML = `<h2>Current Temperature in ${location} is ${data["current"]["feelslike_f"]} °F</h2>`;
                             } else if (dataType === 'precip_in') {
