@@ -71,7 +71,6 @@ title: Student Blog
 
         <input type="text" id="location" placeholder="Enter city name" autofocus onkeyup="handleKeyPress(event)">
         <div class="button-container">
-            <button class="button-spacing" onclick="getMetric()">Metric Units</button>
             <button class="button-spacing" onclick="getWindSpeed()">Wind Speed</button>
             <button class="button-spacing" onclick="getTemperature()">Temperature</button>
             <button class="button-spacing" onclick="getPrecipitation()">Precipitation</button>
@@ -106,7 +105,7 @@ title: Student Blog
         }
 
         function getMetric() {
-            console.log("HIIIII::::"+ isMetric)
+            isMetric = !isMetric;
             alert(isMetric);
         }
 
@@ -134,13 +133,20 @@ title: Student Blog
                             console.log("IMAGE_URL===="+ imageUrl)
                             
 
-                            if (dataType === 'wind_mph') {
+                            if (dataType === 'wind_mph' && isMetric === true) {
+                                resultDiv.innerHTML = `<h2>Current Wind Speed in ${location} is ${data["current"]["wind_mph"]*1.61} KPH </h2>`;
+                            } else if (dataType === 'feelslike_f' && isMetric === true) {
+                                resultDiv.innerHTML = `<h2>Current Temperature in ${location} is ${(data["current"]["feelslike_f"]-32)*(0.55)} °C</h2>`;
+                            } else if (dataType === 'precip_in' && isMetric === true) {
+                                resultDiv.innerHTML = `<h2>Current Precipitation in ${location} is ${data["current"]["precip_in"]*2.54} cm</h2>`;
+                            } else if (dataType === 'wind_mph' && isMetric === false) {
                                 resultDiv.innerHTML = `<h2>Current Wind Speed in ${location} is ${data["current"]["wind_mph"]} MPH </h2>`;
-                            } else if (dataType === 'feelslike_f') {
+                            } else if (dataType === 'feelslike_f' && isMetric === false) {
                                 resultDiv.innerHTML = `<h2>Current Temperature in ${location} is ${data["current"]["feelslike_f"]} °F</h2>`;
-                            } else if (dataType === 'precip_in') {
+                            } else if (dataType === 'precip_in' && isMetric === false) {
                                 resultDiv.innerHTML = `<h2>Current Precipitation in ${location} is ${data["current"]["precip_in"]} inches</h2>`;
                             }
+                            
                             let imgElement = document.createElement('img');
                             imgElement.src = imageUrl;
                             resultDiv.appendChild(imgElement);
