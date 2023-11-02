@@ -14,10 +14,8 @@ Provide a link to a live demo of your Weather Website if available.
 - Search for the weather in a specific location.
 - Retrieve temperature, wind speed, and precipitation data.
 - Access additional data from the following APIs:
-  - COVID data
-  - Jokes
   - User information
-  - Player data
+  - Weather API
   - City images
 
 ## Getting Started
