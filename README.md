@@ -1,3 +1,63 @@
+## Weather Website
+
+Welcome to the Weather Website project! This website allows you to search for a location and retrieve weather information, including temperature, wind speed, and precipitation. We have integrated several APIs to provide additional functionalities, including COVID data, jokes, user information, player data, and city images.
+
+
+## Demo
+
+Provide a link to a live demo of your Weather Website if available.
+
+[Live Demo](https://drishyamody.github.io/Frontend/)
+
+## Features
+
+- Search for the weather in a specific location.
+- Retrieve temperature, wind speed, and precipitation data.
+- Access additional data from the following APIs:
+  - COVID data
+  - Jokes
+  - User information
+  - Player data
+  - City images
+
+## Getting Started
+
+Explain what your project is about and any prerequisites or important information that users should know.
+
+## Installation
+
+Provide instructions for installing and setting up your project. Include information on any dependencies, configuration files, and other requirements.
+
+```bash
+# Example installation instructions
+1. Clone this repository:
+
+
+## Usage
+
+Explain how to use your Weather Website, including how to search for weather information in a location and how to access additional data from the integrated APIs.
+
+```bash
+
+
+## Example usage
+1. Enter a location in the search bar.
+2. Click the "Search" button.
+3. View the weather information for the specified location.
+4. Explore additional features like COVID data, jokes, user information, player data, and city images.
+
+
+We welcome contributions from the community. To contribute, please follow these steps:
+
+1. Fork this repository.
+2. Create a new branch for your feature or bug fix: `git checkout -b feature/new-feature`
+3. Make your changes and test them.
+4. Submit a pull request to this repository's `main` branch.
+5. Our team will review your pull request and provide feedback.
+
+Please ensure that your code follows our coding guidelines and includes appropriate tests if necessary.
+
+
 ## Blog site using GitHub Pages and Jekyll
 > This site is intended for Students.   This is to record plans, complete hacks, and do work for your learnings.
 - This can be customized to support computer science as you work through pathway (JavaScript, Python/Flask, Java/Spring)
